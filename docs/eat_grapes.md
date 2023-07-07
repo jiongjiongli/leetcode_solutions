@@ -66,9 +66,7 @@ x_1 + z_2 = b
 ```
 则问题为：
 
-对于所有满足上述要求的 $x, y, z$ ，求
-
-$\min \left (\max \left (x, y, z \right ) \right )$
+对于所有满足上述要求的 $x, y, z$ ，求 $\min \left (\max \left (x, y, z \right ) \right )$ 。
 
 
 
@@ -82,8 +80,6 @@ $\min \left (\max \left (x, y, z \right ) \right )$
 ```math
 s = a + b + c \label{eq4} \tag{4}
 ```
-$s = a + b + c$
-
 由于三个人把所有的葡萄都吃完，因此 $x + y + z = a + b + c$
 
 所以 
@@ -108,7 +104,7 @@ $s = a + b + c$
 ```
 
 
-由不等式  $ (\ref {eq5} ) $ , $( \ref {eq6} )$可得 
+由不等式  $(\ref {eq5} )$ , $( \ref {eq6} )$可得 
 ```math
 \begin {equation} 
 \begin{gathered}
@@ -125,7 +121,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 
 
 
-## 6.1 情况1
+## 6.1 情况一
 
 若 $\dfrac {s} {3} \le \dfrac {c} {2}$ ，则
 ```math
@@ -139,7 +135,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 \end{equation}
 \label {eq8} \tag{8}
 ```
-此时需要证明存在非负整数 $x, y, z$  满足 $ \max \left (x, y, z \right ) = \left \lceil \dfrac {c} {2} \right \rceil $。
+此时需要证明存在非负整数 $x, y, z$  满足 $\max \left (x, y, z \right ) = \left \lceil \dfrac {c} {2} \right \rceil$ 。
 
 则可让 $B$ 吃掉 $\left \lceil \dfrac {c} {2} \right \rceil$ ， $A$ 吃掉 $\left \lfloor \dfrac {c} {2} \right \rfloor$ ， $C$ 吃掉剩下的两种葡萄 $a + b$ 。此时
 ```math
@@ -150,11 +146,11 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 \end {equation}
 \label {eq9} \tag{9}
 ```
-![eat_grapes_case1](../images\eat_grapes_solution1.png)
+![eat_grapes_case1](../images/eat_grapes_solution1.png)
 
 证明完毕。
 
-## 6.2 情况2
+## 6.2 情况二
 
 否则
 
@@ -168,9 +164,9 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 ```
 
 
-此时需要证明存在非负整数 $x, y, z$  满足 $ \max \left (x, y, z \right ) = \left \lceil \dfrac {s} {3} \right \rceil $。
+此时需要证明存在非负整数 $x, y, z$  满足 $\max \left (x, y, z \right ) = \left \lceil \dfrac {s} {3} \right \rceil$ 。
 
-由可得
+由 $(\ref {eq10} ) $ 可得
 ```math
 \begin {equation} 
 \begin{gathered}
@@ -198,9 +194,9 @@ r = \left \lceil \dfrac {s} {3} \right \rceil
 
 
 
-![eat_grapes_case2](../images\eat_grapes_solution2.png)
+![eat_grapes_case2](../images/eat_grapes_solution2.png)
 
-由 $(\ref {eq3} ) $ 得  $a \le b \le c$ 。 $c$ 最大，因此优先分配 $c$ 。 $a$ 最小，因此最后分配。所以让 $B$ 专注于吃 $c$，然后让 $A$ 吃掉 $c$ 的剩下一部分和一部分 $b$ 。 最后 $C$ 吃掉 $b$ 剩下的部分和全部的 $a$。注意每个人最多分配 $r$ 个葡萄。
+由 $(\ref {eq3} )$ 得  $a \le b \le c$ 。 $c$ 最大，因此优先分配 $c$ 。 $a$ 最小，因此最后分配。所以让 $B$ 专注于吃 $c$，然后让 $A$ 吃掉 $c$ 的剩下一部分和一部分 $b$ 。 最后 $C$ 吃掉 $b$ 剩下的部分和全部的 $a$。注意每个人最多分配 $r$ 个葡萄。
 
 可得：
 ```math
@@ -218,9 +214,9 @@ z_2 = b + c - 2r = b + c - 2 \left \lceil \dfrac {s} {3} \right \rceil
 ```
 
 
-接下来证明 $(\ref {eq13} ) $ 中的所有值都 $\ge 0$ ：
+接下来证明 $(\ref {eq13} )$ 中的所有值都 $\ge 0$ ：
 
-由 $(\ref {eq11} ) $ 得
+由 $(\ref {eq11} )$ 得
 ```math
 2 \cdot \dfrac {s} {3} - c = 2 \cdot  \dfrac { a + b + c } {3} - c = \dfrac { 2 \left (a + b \right ) - c } {3} \gt 0
 ```
@@ -233,7 +229,7 @@ x_1 > 0
 \end {equation}
 \label {eq14} \tag{14}
 ```
-由 $(\ref {eq3} ) $ 得
+由 $(\ref {eq3} )$ 得
 
 
 ```math
@@ -250,13 +246,13 @@ x_2 \ge 0, z_2 \ge 0
 \end {equation}
 \label {eq15} \tag{15}
 ```
-由 $(\ref {eq13} ) $ ，  $(\ref {eq14} ) $，  $(\ref {eq15} ) $ 可得 $(\ref {eq13} ) $ 中的所有值都 $\ge 0$ 。
+由 $(\ref {eq13} )$ ，  $(\ref {eq14} )$，  $(\ref {eq15} )$ 可得 $(\ref {eq13} )$ 中的所有值都 $\ge 0$ 。
 
 
 
 然后证明  $\max \left (x, y, z \right ) = r$ ：
 
-由 $(\ref {eq1} ) $ ， $(\ref {eq13} ) $ 可得：
+由 $(\ref {eq1} )$ ， $(\ref {eq13} )$ 可得：
 ```math
 \begin {equation}
 \begin {gathered}
@@ -282,7 +278,7 @@ z = a + b + c - 2 \left \lceil \dfrac {s} {3} \right \rceil = \left \lfloor \dfr
 ```
 
 
-由 $(\ref {eq16} ) $ ， $(\ref {eq17} ) $ 得：
+由 $(\ref {eq16} )$ ， $(\ref {eq17} )$ 得：
 ```math
 \max \left (x, y, z \right ) = r
 ```
