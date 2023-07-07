@@ -17,7 +17,7 @@
 
 ## 1.2 Question in English
 
-There are three kinds of grapes, each with a, b, and c pieces, respectively.
+There are three kinds of grapes, each with $a$, $b$, and $c$ pieces, respectively.
 There are three individuals: The first person only eats the 1st and 2nd types of grapes, the second person only eats the 2nd and 3rd types, and the third person only eats the 1st and 3rd types.
 They should eat up all of the grapes, and the person who eats the most should eat as few as possible.
 
@@ -66,7 +66,7 @@ x_1 + z_2 = b
 ```
 则问题为：
 
-对于所有满足上述要求的 $x, y, z$ ，求 $\min \left (\max \left (x, y, z \right ) \right )$ 。
+对于所有满足  $(\ref {eq1} )$ , $(\ref {eq2} )$ 的 $x, y, z$ ，求 $\min \left (\max \left (x, y, z \right ) \right )$ 。
 
 
 
