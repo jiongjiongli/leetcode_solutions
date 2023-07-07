@@ -1,5 +1,7 @@
 # [编程题]吃葡萄
 
+来源：[牛客网](https://www.nowcoder.com/questionTerminal/14c0359fb77a48319f0122ec175c9ada)
+
 # 1 问题
 
 ## 1.1 问题描述
