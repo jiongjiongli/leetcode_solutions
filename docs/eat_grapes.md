@@ -44,6 +44,23 @@ The number of grapes that the person eats the most.
 # 4 问题公式化
 
 假设每个人吃掉的葡萄数分别为：
+
+```math
+This is a test
+\begin{equation} 
+\begin{gathered}
+x = x_1 +x_2 \\
+y = y_1 + y_2 \\
+z = z_1 + z_2 
+\end{gathered}
+\end{equation} \label{eq1} \tag{1}
+```
+
+
+
+
+
+
 $$
 \begin{equation} 
 \begin{gathered}
@@ -157,7 +174,7 @@ $$
 
 否则
 
- 
+
 $$
 \begin{equation} 
 \begin{gathered}
@@ -165,7 +182,7 @@ $$
 \end{gathered}
 \end{equation} \label{eq10} \tag{10}
 $$
- 
+
 
 此时需要证明存在非负整数 $x, y, z$  满足 $ \max \left (x, y, z \right ) = \left \lceil \dfrac {s} {3} \right \rceil $。
 
