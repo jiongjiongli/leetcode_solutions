@@ -150,7 +150,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 \end {equation}
 \label {eq9} \tag{9}
 ```
-![eat_grapes_case1](D:\proj\git\leetcode_solutions\images\eat_grapes_solution1.png)
+![eat_grapes_case1](../images\eat_grapes_solution1.png)
 
 证明完毕。
 
@@ -198,7 +198,7 @@ r = \left \lceil \dfrac {s} {3} \right \rceil
 
 
 
-![eat_grapes_case2](D:\proj\git\leetcode_solutions\images\eat_grapes_solution2.png)
+![eat_grapes_case2](../images\eat_grapes_solution2.png)
 
 由 $(\ref {eq3} ) $ 得  $a \le b \le c$ 。 $c$ 最大，因此优先分配 $c$ 。 $a$ 最小，因此最后分配。所以让 $B$ 专注于吃 $c$，然后让 $A$ 吃掉 $c$ 的剩下一部分和一部分 $b$ 。 最后 $C$ 吃掉 $b$ 剩下的部分和全部的 $a$。注意每个人最多分配 $r$ 个葡萄。
 
