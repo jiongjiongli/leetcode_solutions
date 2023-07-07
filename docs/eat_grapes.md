@@ -168,7 +168,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 
 此时需要证明存在非负整数 $x, y, z$  满足 $\max \left (x, y, z \right ) = \left \lceil \dfrac {s} {3} \right \rceil$ 。
 
-由 $(\ref {eq10} ) $ 可得
+由 $(\ref {eq10} )$ 可得
 ```math
 \begin {equation} 
 \begin{gathered}
