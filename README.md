@@ -1,6 +1,6 @@
 # leetcode_solutions
 
-Leetcode hard problems and resolutions. 
+1. Leetcode hard problems and resolutions. 
 
-Some other interesting problems and resolutions.
+2. Some other interesting algorithms.
 
