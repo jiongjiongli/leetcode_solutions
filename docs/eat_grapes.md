@@ -48,13 +48,15 @@ The number of grapes that the person eats the most.
 假设每个人吃掉的葡萄数分别为：
 
 ```math
+
 \begin{equation} 
 \begin{gathered}
 x = x_1 +x_2 \\
 y = y_1 + y_2 \\
 z = z_1 + z_2 
 \end{gathered}
-\end{equation} \label{eq1} \tag{1}
+\end{equation} \tag{1}
+
 ```
 其中 $x, y, z$ 都为非负整数，且满足
 ```math
@@ -64,7 +66,7 @@ y_1 + x_2 = c \\
 z_1 + y_2 = a \\
 x_1 + z_2 = b
 \end{gathered}
-\end{equation} \label{eq2} \tag{2}
+\end{equation} \tag{2}
 ```
 则问题为：
 
@@ -76,11 +78,11 @@ x_1 + z_2 = b
 
 不失一般性，假设 
 ```math
-\begin{equation} a \leq b \leq c \end{equation} \label{eq3} \tag{3}
+\begin{equation} a \leq b \leq c \end{equation} \tag{3}
 ```
 令
 ```math
-s = a + b + c \label{eq4} \tag{4}
+s = a + b + c \tag{4}
 ```
 由于三个人把所有的葡萄都吃完，因此 $x + y + z = a + b + c$
 
@@ -91,7 +93,7 @@ s = a + b + c \label{eq4} \tag{4}
 3 \cdot \max \left (x, y, z \right ) \ge x + y + z = a + b + c = s \\
 \implies \max \left (x, y, z \right ) \ge \dfrac {s} {3} 
 \end{gathered}
-\end{equation} \label{eq5} \tag{5}
+\end{equation} \tag{5}
 ```
 由于一种葡萄最多由两个人吃完，可得 $x_2 + y_1 = c$
 
@@ -102,7 +104,7 @@ s = a + b + c \label{eq4} \tag{4}
 2 \cdot \max \left (x, y, z \right ) \ge x + y \ge x_2 + y_1 = c  \\
 \implies \max \left (x, y, z \right ) \ge \dfrac {c} {2}
 \end{gathered}
-\end{equation} \label{eq6} \tag{6}
+\end{equation} \tag{6}
 ```
 
 
@@ -113,7 +115,7 @@ s = a + b + c \label{eq4} \tag{4}
 \max \left (x, y, z \right ) \ge \max \left ( \dfrac {s} {3}, \dfrac {c} {2} \right ) \\
 \implies \max \left (x, y, z \right ) \ge \max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c} {2} \right \rceil \right )
 \end{gathered}
-\end {equation} \label {eq7} \tag{7}
+\end {equation} \tag{7}
 ```
 $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c} {2} \right \rceil \right )$ 即为答案。
 
@@ -135,7 +137,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 \implies a + b  \le \dfrac {c} {2}
 \end{gathered}
 \end{equation}
-\label {eq8} \tag{8}
+\tag{8}
 ```
 此时需要证明存在非负整数 $x, y, z$  满足 $\max \left (x, y, z \right ) = \left \lceil \dfrac {c} {2} \right \rceil$ 。
 
@@ -146,7 +148,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 \max \left (x, y, z \right ) = \max \left (\left \lfloor \dfrac {c} {2} \right \rfloor, \left \lceil \dfrac {c} {2} \right \rceil, a + b \right ) = \left \lceil \dfrac {c} {2} \right \rceil 
 \end{gathered}
 \end {equation}
-\label {eq9} \tag{9}
+ \tag{9}
 ```
 ![eat_grapes_case1](../images/eat_grapes_solution1.png)
 
@@ -162,7 +164,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 \begin{gathered}
 \dfrac {s} {3} \gt \dfrac {c} {2}
 \end{gathered}
-\end{equation} \label{eq10} \tag{10}
+\end{equation} \tag{10}
 ```
 
 
@@ -175,7 +177,7 @@ $\max \left ( \left \lceil \dfrac {s} {3}  \right \rceil, \left \lceil \dfrac {c
 a + b  \gt \dfrac {c} {2}
 \end{gathered}
 \end {equation} 
-\label {eq11} \tag{11}
+\tag{11}
 ```
 
 
@@ -186,7 +188,7 @@ a + b  \gt \dfrac {c} {2}
 r = \left \lceil \dfrac {s} {3} \right \rceil
 \end{gathered}
 \end {equation} 
-\label {eq12} \tag{12}
+ \tag{12}
 ```
 
 
@@ -212,7 +214,7 @@ z_1 = a \\
 z_2 = b + c - 2r = b + c - 2 \left \lceil \dfrac {s} {3} \right \rceil 
 \end {gathered}
 \end {equation}
-\label {eq13} \tag{13}
+ \tag{13}
 ```
 
 
@@ -229,7 +231,7 @@ z_2 = b + c - 2r = b + c - 2 \left \lceil \dfrac {s} {3} \right \rceil
 x_1 > 0
 \end {gathered}
 \end {equation}
-\label {eq14} \tag{14}
+ \tag{14}
 ```
 由 $(\ref {eq3} )$ 得
 
@@ -246,7 +248,7 @@ c - \dfrac {s} {3} = c - \dfrac { a + b + c } {3} = \dfrac { 2c - \left ( a + b\
 x_2 \ge 0, z_2 \ge 0
 \end {gathered}
 \end {equation}
-\label {eq15} \tag{15}
+ \tag{15}
 ```
 由 $(\ref {eq13} )$ ，  $(\ref {eq14} )$，  $(\ref {eq15} )$ 可得 $(\ref {eq13} )$ 中的所有值都 $\ge 0$ 。
 
@@ -263,7 +265,7 @@ y = y_1 + y_2 = r + 0 = r \\
 z = a + b + c - 2r = a + b + c - 2 \left \lceil \dfrac {s} {3} \right \rceil
 \end {gathered}
 \end {equation}
-\label {eq16} \tag{16}
+ \tag{16}
 ```
 由于 
 ```math
@@ -276,7 +278,7 @@ a + b + c - 2 \cdot \dfrac {s} {3} = a + b + c - 2 \cdot \dfrac {a + b + c} {3} 
 z = a + b + c - 2 \left \lceil \dfrac {s} {3} \right \rceil = \left \lfloor \dfrac {a + b + c} {3} \right \rfloor \le \left \lceil \dfrac {a + b + c} {3} \right \rceil = r
 \end {gathered}
 \end {equation}
-\label {eq17} \tag{17}
+ \tag{17}
 ```
 
 
