@@ -292,7 +292,7 @@ z = a + b + c - 2 \left \lceil \dfrac {s} {3} \right \rceil = \left \lfloor \dfr
 
 
 
-# 7 编程答案
+# 7 编程实现
 
 
 
