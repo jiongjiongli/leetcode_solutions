@@ -2,289 +2,169 @@
 
 Source: [Nowcoder](https://www.nowcoder.com/questionTerminal/14c0359fb77a48319f0122ec175c9ada)
 
-# 1 Problem
+Chinese version: [eat_grapes.md](eat_grapes.md)
 
-## 1.1 Description
+## 1. Problem
 
-There are three kinds of grapes, with $a$, $b$, and $c$ grapes respectively.
-There are three people:
+There are three kinds of grapes, with quantities $a$, $b$, and $c$. There are three people:
 
-- Person 1 can only eat grape types 1 and 2.
-- Person 2 can only eat grape types 2 and 3.
-- Person 3 can only eat grape types 1 and 3.
+- The first person can only eat grape types 1 and 2.
+- The second person can only eat grape types 2 and 3.
+- The third person can only eat grape types 1 and 3.
 
-Arrange the three people so that all grapes are eaten, and the maximum number of grapes eaten by any one person is as small as possible.
+Arrange the three people so that all grapes are eaten, and the number of grapes eaten by the person who eats the most is as small as possible.
 
-### 1.1.1 Input
+### Input
 
 $a$, $b$, and $c$ are positive integers.
 
-### 1.1.2 Output
+### Output
 
-The minimum possible value of the number of grapes eaten by the person who eats the most.
+Output the minimum possible number of grapes eaten by the person who eats the most.
 
-# 2 Idea
+## 2. Conclusion
 
-This is essentially a math problem. It can be solved with a triangle-style visualization, inequality derivation, and a greedy construction.
+Let $s = a + b + c$, and let $m = \max(a, b, c)$. The answer is:
 
-# 3 Visualization
+$$
+\max\left(\left\lceil \frac{s}{3} \right\rceil,\left\lceil \frac{m}{2} \right\rceil\right)
+$$
 
-As shown below, the three people stand at vertices $A$, $B$, and $C$ of a triangle. The grapes are represented by thick line segments, and the grapes eaten by each person are shown in red, yellow, and blue. These segments do not necessarily form an actual triangle, so the three grape types are not drawn as the three sides of a triangle.
+Code:
+
+```python
+def find_min_max(a, b, c):
+    return max((a + b + c + 2) // 3, (max(a, b, c) + 1) // 2)
+```
+
+The rest of this document proves the conclusion.
+
+## 3. Visualization
+
+We can view the three people as the three vertices $A$, $B$, and $C$ of a triangle. The three grape types are placed between the pairs of people who can eat them. Each grape type can only be eaten by its two adjacent people.
+
+The red, yellow, and blue segments in the figure represent the numbers of grapes eaten by the three people. These segments are only used to illustrate the allocation relationship; they do not need to form a real triangle.
 
 ![eat_grapes_visualization](../images/eat_grapes_visualization.png)
 
-# 4 Problem Model
+## 4. Lower Bound Derivation
 
-Assume the numbers of grapes eaten by the three people are:
-
-$$
-\begin{gathered}
-x = x_1 + x_2 \\
-y = y_1 + y_2 \\
-z = z_1 + z_2
-\end{gathered} \qquad (1)
-$$
-
-where $x$, $y$, and $z$ are non-negative integers, and:
+Without loss of generality, sort the three grape quantities and assume:
 
 $$
-\begin{gathered}
-y_1 + x_2 = c \\
-z_1 + y_2 = a \\
-x_1 + z_2 = b
-\end{gathered} \qquad (2)
+a \le b \le c
 $$
 
-The problem is to find:
+Now the largest grape type has quantity $c$. Let the final numbers of grapes eaten by the three people be $x$, $y$, and $z$.
+
+Since all grapes must be eaten:
 
 $$
-\min \left(\max \left(x, y, z \right)\right)
+x + y + z = a + b + c = s
 $$
 
-over all $x$, $y$, and $z$ satisfying Equation (1) and Equation (2).
-
-# 5 Lower Bound Derivation
-
-Without loss of generality, assume:
+Therefore, the person who eats the most must eat at least the average:
 
 $$
-a \leq b \leq c \qquad (3)
+\max(x, y, z) \ge \left\lceil \frac{s}{3} \right\rceil
 $$
+
+On the other hand, the largest grape type has $c$ grapes, and it can only be eaten by two people. So at least one of those two people must eat at least half of it:
+
+$$
+\max(x, y, z) \ge \left\lceil \frac{c}{2} \right\rceil
+$$
+
+Thus the answer is at least:
+
+$$
+\max\left(\left\lceil \frac{s}{3} \right\rceil,\left\lceil \frac{c}{2} \right\rceil\right)
+$$
+
+It remains to prove that this lower bound is always achievable.
+
+## 5. Proof
 
 Let:
 
 $$
-s = a + b + c \qquad (4)
+R = \max\left(\left\lceil \frac{s}{3} \right\rceil,\left\lceil \frac{c}{2} \right\rceil\right)
 $$
 
-Since all grapes are eaten, $x + y + z = a + b + c$. Therefore:
+The previous section shows that no valid allocation can have an answer smaller than $R$. Now we only need to prove that there is always an allocation where each person eats at most $R$ grapes.
+
+Think of the problem as a capacity allocation problem:
+
+- Each grape type is a batch of items to allocate.
+- Each person has capacity $R$.
+- Each grape type can only flow to the two people who can eat it.
+
+This is a small bipartite allocation problem. By the max-flow min-cut theorem, if every group of grape types has total quantity no larger than the total capacity of the people who can eat that group, then a complete allocation exists. In other words, we only need to check whether any capacity bottleneck exists.
+
+### One Grape Type
+
+Any single grape type has at most $c$ grapes, and it can be eaten by two people. The total capacity of those two people is $2R$.
+
+Because:
 
 $$
-\begin{gathered}
-3 \cdot \max \left(x, y, z \right) \ge x + y + z = a + b + c = s \\
-\implies \max \left(x, y, z \right) \ge \dfrac{s}{3}
-\end{gathered} \qquad (5)
-$$
-
-Also, any one grape type can be eaten by at most two people. For the largest grape type $c$, we have $x_2 + y_1 = c$. Therefore:
-
-$$
-\begin{gathered}
-2 \cdot \max \left(x, y, z \right) \ge x + y \ge x_2 + y_1 = c \\
-\implies \max \left(x, y, z \right) \ge \dfrac{c}{2}
-\end{gathered} \qquad (6)
-$$
-
-From Equation (5) and Equation (6):
-
-$$
-\begin{gathered}
-\max \left(x, y, z \right) \ge \max \left(\dfrac{s}{3}, \dfrac{c}{2} \right) \\
-\implies \max \left(x, y, z \right) \ge
-\max \left(\left\lceil \dfrac{s}{3} \right\rceil, \left\lceil \dfrac{c}{2} \right\rceil \right)
-\end{gathered} \qquad (7)
-$$
-
-The answer is:
-
-$$
-\max \left(\left\lceil \dfrac{s}{3} \right\rceil, \left\lceil \dfrac{c}{2} \right\rceil \right)
-$$
-
-# 6 Proof
-
-## 6.1 Case 1
-
-If $\dfrac{s}{3} \le \dfrac{c}{2}$, then:
-
-$$
-\begin{gathered}
-\dfrac{s}{3} \le \dfrac{c}{2}
-\implies \dfrac{a + b + c}{3} \le \dfrac{c}{2} \\
-\implies 2(a + b + c) \le 3c \\
-\implies 2(a + b) \le c \\
-\implies a + b \le \dfrac{c}{2}
-\end{gathered} \qquad (8)
-$$
-
-Now we need to show that there exists a valid assignment where:
-
-$$
-\max \left(x, y, z \right) = \left\lceil \dfrac{c}{2} \right\rceil
-$$
-
-Let person $B$ eat $\left\lceil \dfrac{c}{2} \right\rceil$ grapes, person $A$ eat $\left\lfloor \dfrac{c}{2} \right\rfloor$ grapes, and person $C$ eat the remaining two grape types, $a + b$. Then:
-
-$$
-\begin{gathered}
-\max \left(x, y, z \right)
-= \max \left(
-\left\lfloor \dfrac{c}{2} \right\rfloor,
-\left\lceil \dfrac{c}{2} \right\rceil,
-a + b
-\right)
-= \left\lceil \dfrac{c}{2} \right\rceil
-\end{gathered} \qquad (9)
-$$
-
-![eat_grapes_case1](../images/eat_grapes_solution1.png)
-
-So Case 1 is proven.
-
-## 6.2 Case 2
-
-Otherwise:
-
-$$
-\begin{gathered}
-\dfrac{s}{3} > \dfrac{c}{2}
-\end{gathered} \qquad (10)
-$$
-
-Now we need to show that there exists a valid assignment where:
-
-$$
-\max \left(x, y, z \right) = \left\lceil \dfrac{s}{3} \right\rceil
-$$
-
-From Equation (10):
-
-$$
-\begin{gathered}
-a + b > \dfrac{c}{2}
-\end{gathered} \qquad (11)
-$$
-
-For convenience, let:
-
-$$
-\begin{gathered}
-r = \left\lceil \dfrac{s}{3} \right\rceil
-\end{gathered} \qquad (12)
-$$
-
-We will prove that $\max \left(x, y, z \right) = r$.
-
-Use the greedy assignment shown below:
-
-![eat_grapes_case2](../images/eat_grapes_solution2.png)
-
-Because $a \le b \le c$, $c$ is the largest grape type, so we allocate it first. Since $a$ is the smallest, we allocate it last. Let $B$ focus on eating $c$, let $A$ eat the remaining part of $c$ and part of $b$, and finally let $C$ eat the remaining part of $b$ and all of $a$. Each person receives at most $r$ grapes.
-
-Then:
-
-$$
-\begin{gathered}
-x_1 = 2r - c = 2 \left\lceil \dfrac{s}{3} \right\rceil - c \\
-x_2 = c - r = c - \left\lceil \dfrac{s}{3} \right\rceil \\
-y_1 = r = \left\lceil \dfrac{s}{3} \right\rceil \\
-y_2 = 0 \\
-z_1 = a \\
-z_2 = b + c - 2r = b + c - 2 \left\lceil \dfrac{s}{3} \right\rceil
-\end{gathered} \qquad (13)
-$$
-
-First, prove that all values in Equation (13) are non-negative.
-
-From Equation (11):
-
-$$
-2 \cdot \dfrac{s}{3} - c
-= 2 \cdot \dfrac{a + b + c}{3} - c
-= \dfrac{2(a + b) - c}{3}
-> 0
-$$
-
-Therefore:
-
-$$
-\begin{gathered}
-x_1 > 0
-\end{gathered} \qquad (14)
-$$
-
-From Equation (3):
-
-$$
-c - \dfrac{s}{3}
-= c - \dfrac{a + b + c}{3}
-= \dfrac{2c - (a + b)}{3}
-\ge 0
-
-b + c - 2 \cdot \dfrac{s}{3}
-= b + c - 2 \cdot \dfrac{a + b + c}{3}
-= \dfrac{(b + c) - 2a}{3}
-\ge 0
-$$
-
-Therefore:
-
-$$
-\begin{gathered}
-x_2 \ge 0, z_2 \ge 0
-\end{gathered} \qquad (15)
-$$
-
-So every value in Equation (13) is non-negative.
-
-Now prove that $\max \left(x, y, z \right) = r$.
-
-From Equation (1) and Equation (13):
-
-$$
-\begin{gathered}
-x = x_1 + x_2 = 2r - c + c - r = r \\
-y = y_1 + y_2 = r + 0 = r \\
-z = a + b + c - 2r = a + b + c - 2 \left\lceil \dfrac{s}{3} \right\rceil
-\end{gathered} \qquad (16)
-$$
-
-Since:
-
-$$
-s = a + b + c \le 3 \left\lceil \dfrac{s}{3} \right\rceil = 3r
+R \ge \left\lceil \frac{c}{2} \right\rceil
 $$
 
 we have:
 
 $$
-\begin{gathered}
-z
-= s - 2r \le 3r - 2r = r
-\end{gathered} \qquad (17)
+c \le 2R
 $$
 
-From Equation (16) and Equation (17):
+So no single grape type exceeds the total capacity of the two people who can eat it.
+
+### Two Or Three Grape Types
+
+Any two grape types together can be eaten by all three people. For example:
+
+- Grape types 1 and 2 can be eaten collectively by people 1, 2, and 3.
+- Grape types 1 and 3 can also be eaten collectively by people 1, 2, and 3.
+- Grape types 2 and 3 are the same.
+
+The total capacity of the three people is $3R$. Because:
 
 $$
-\max \left(x, y, z \right) = r
+R \ge \left\lceil \frac{s}{3} \right\rceil
 $$
 
-So Case 2 is proven.
+we have:
 
-# 7 Implementation
+$$
+s \le 3R
+$$
 
-```python
-def find_min_max(a, b, c):
-    return max((a + b + c + 3 - 1) // 3, (max(a, b, c) + 2 - 1) // 2)
-```
+The total quantity of any two grape types is no more than $s$, and the total quantity of all three grape types is exactly $s$. Therefore, neither two grape types nor three grape types can exceed the total capacity of all three people.
+
+### Therefore It Is Feasible
+
+We have checked every possible bottleneck:
+
+- A single grape type does not exceed the capacity of its two eligible people.
+- Two or three grape types do not exceed the total capacity of all three people.
+
+Therefore, there must be an allocation where each person eats at most $R$ grapes.
+
+Combining this with the lower bound, the answer is:
+
+$$
+\max\left(\left\lceil \frac{s}{3} \right\rceil,\left\lceil \frac{c}{2} \right\rceil\right)
+$$
+
+The following two figures show the intuition for the cases where the largest grape type dominates and where the total average dominates:
+
+![eat_grapes_case1](../images/eat_grapes_solution1.png)
+
+![eat_grapes_case2](../images/eat_grapes_solution2.png)
+
+## 6. Complexity
+
+We only need to compute the sum and the maximum.
+
+- Time complexity: $O(1)$
+- Space complexity: $O(1)$
