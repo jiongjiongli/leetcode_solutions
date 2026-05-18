@@ -45,7 +45,7 @@ def find_min_max(a, b, c):
 
 图中的红、黄、蓝线段表示三个人分别吃掉的葡萄数量。注意这些线段只是帮助理解分配关系，并不要求它们构成一个真正的三角形。
 
-![eat_grapes_visualization](../images/eat_grapes_visualization.png)
+![eat_grapes_visualization](../images/eat_grapes_overview.png)
 
 ## 4. 下界推理
 
@@ -176,7 +176,7 @@ $$
 
 剩下的 $a + b$ 不超过上界 $R$，可以交给蓝色的人吃，因此最大值为 $R$。
 
-![eat_grapes_case1](../images/eat_grapes_solution1.png)
+![eat_grapes_case1](../images/eat_grapes_1.png)
 
 第二张图对应总量平均值更大的情况，即：
 
@@ -236,7 +236,7 @@ $$
 
 所以红色的人吃的数量也不超过上界 $R$，因此最大值为 $R$。
 
-![eat_grapes_case2](../images/eat_grapes_solution2.png)
+![eat_grapes_case2](../images/eat_grapes_2.png)
 
 ## 6. 复杂度
 
