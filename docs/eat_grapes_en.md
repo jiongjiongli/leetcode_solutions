@@ -41,7 +41,7 @@ The rest of this document proves the conclusion.
 
 ## 3. Visualization
 
-We can view the three people as sitting at vertices $A$, $B$, and $C$ of a triangular table, with the three grape types placed at the three vertices. Each grape type can only be eaten by the two adjacent people.
+We can view the three people as sitting at vertices $A$, $B$, and $C$ of a triangular table, with the three grape types placed on the three edges. Each grape type can only be eaten by the two adjacent people at the ends of that edge.
 
 The red, yellow, and blue segments in the figure represent the numbers of grapes eaten by the three people. These segments are only used to illustrate the allocation relationship; they do not need to form a real triangle.
 
@@ -52,7 +52,7 @@ The red, yellow, and blue segments in the figure represent the numbers of grapes
 Without loss of generality, sort the three grape quantities and assume:
 
 $$
-a \le b \le c
+a \leqslant b \leqslant c
 $$
 
 Now the largest grape type has quantity $c$. Let the final numbers of grapes eaten by the three people be $x$, $y$, and $z$.
@@ -66,13 +66,13 @@ $$
 Therefore, the person who eats the most must eat at least the average:
 
 $$
-\max(x, y, z) \ge \left\lceil \frac{s}{3} \right\rceil
+\max(x, y, z) \geqslant \left\lceil \frac{s}{3} \right\rceil
 $$
 
 On the other hand, the largest grape type has $c$ grapes, and it can only be eaten by two people. So at least one of those two people must eat at least half of it:
 
 $$
-\max(x, y, z) \ge \left\lceil \frac{c}{2} \right\rceil
+\max(x, y, z) \geqslant \left\lceil \frac{c}{2} \right\rceil
 $$
 
 Thus the answer is at least:
@@ -108,13 +108,13 @@ Any single grape type has at most $c$ grapes, and it can be eaten by two people.
 Because:
 
 $$
-R \ge \left\lceil \frac{c}{2} \right\rceil
+R \geqslant \left\lceil \frac{c}{2} \right\rceil
 $$
 
 we have:
 
 $$
-c \le 2R
+c \leqslant 2R
 $$
 
 So no single grape type exceeds the total capacity of the two people who can eat it.
@@ -130,13 +130,13 @@ Any two grape types together can be eaten by all three people. For example:
 The total capacity of the three people is $3R$. Because:
 
 $$
-R \ge \left\lceil \frac{s}{3} \right\rceil
+R \geqslant \left\lceil \frac{s}{3} \right\rceil
 $$
 
 we have:
 
 $$
-s \le 3R
+s \leqslant 3R
 $$
 
 The total quantity of any two grape types is no more than $s$, and the total quantity of all three grape types is exactly $s$. Therefore, neither two grape types nor three grape types can exceed the total capacity of all three people.
@@ -156,9 +156,85 @@ $$
 \max\left(\left\lceil \frac{s}{3} \right\rceil,\left\lceil \frac{c}{2} \right\rceil\right)
 $$
 
-The following two figures show the intuition for the cases where the largest grape type dominates and where the total average dominates:
+The following two figures show the intuition for the cases where the largest grape type dominates and where the total average dominates. They are a constructive way to understand the capacity proof above.
+
+The first figure corresponds to the case where the largest grape type $c$ dominates:
+
+$$
+\frac{s}{3} \leqslant \frac{c}{2}
+$$
+
+Then $R = \left\lceil \frac{c}{2} \right\rceil$. The bottleneck is that $c$ can only be eaten by the red and yellow people, so we first split $c$ between them as evenly as possible: the yellow person eats $\left\lceil \frac{c}{2} \right\rceil$, and the red person eats $\left\lfloor \frac{c}{2} \right\rfloor$. Since:
+
+$$
+\frac{s}{3} \leqslant \frac{c}{2}
+\implies \frac{a+b+c}{3} \leqslant \frac{c}{2}
+\implies a+b \leqslant \frac{c}{2}
+\implies a+b \leqslant \left\lceil \frac{c}{2} \right\rceil
+\implies a+b \leqslant R
+$$
+
+the remaining $a + b$ grapes do not exceed the upper bound $R$ and can be eaten by the blue person. Therefore, the maximum is $R$.
 
 ![eat_grapes_case1](../images/eat_grapes_solution1.png)
+
+The second figure corresponds to the case where the total average dominates:
+
+$$
+\frac{s}{3} > \frac{c}{2}
+$$
+
+Then $R = \left\lceil \frac{s}{3} \right\rceil$. Because $a \leqslant b \leqslant c$, we have $c \geqslant \frac{s}{3}$, so $c \geqslant R$. Therefore, we can first let the yellow person eat $R$ grapes from type $c$. Next, we need to show that the blue person can also eat exactly $R$ grapes, meaning all $a$ grapes plus some of $b$ are enough to reach $R$.
+
+From $a \leqslant b \leqslant c$:
+
+$$
+2a \leqslant b + c
+\implies a \leqslant \frac{a+b+c}{3}
+\implies a \leqslant \frac{s}{3}
+\implies a \leqslant \left\lceil \frac{s}{3} \right\rceil
+\implies a \leqslant R
+$$
+
+Also, from the current case $\frac{s}{3} > \frac{c}{2}$:
+
+$$
+\frac{s}{3} > \frac{c}{2}
+\implies \frac{a+b+c}{3} > \frac{c}{2}
+\implies 2(a+b) > c
+\implies 3(a+b) > a+b+c
+\implies a+b > \frac{a+b+c}{3}
+\implies a+b > \frac{s}{3}
+\implies a+b \geqslant \left\lceil \frac{s}{3} \right\rceil
+\implies a+b \geqslant R
+$$
+
+Because $a+b$ is an integer, $a+b > \frac{s}{3}$ implies $a+b \geqslant \left\lceil \frac{s}{3} \right\rceil$. Thus $R-a \geqslant 0$, $a+b-R \geqslant 0$, and $c-R \geqslant 0$, so the following allocation amounts are valid.
+
+Let the blue person eat all $a$ grapes and $R-a$ grapes from type $b$. Then the red person eats the remaining $c-R$ grapes from type $c$ and the remaining part of type $b$:
+
+$$
+b-(R-a)=a+b-R
+$$
+
+The red person eats:
+
+$$
+c-R+a+b-R=a+b+c-2R
+$$
+
+Since:
+
+$$
+s=a+b+c
+\implies \frac{s}{3} + 2 \cdot \frac{s}{3} = a+b+c
+\implies \left\lceil \frac{s}{3} \right\rceil + 2 \cdot \left\lceil \frac{s}{3} \right\rceil \geqslant a+b+c
+\implies a+b+c-2\left\lceil \frac{s}{3} \right\rceil \leqslant \left\lceil \frac{s}{3} \right\rceil
+\implies a+b+c-2R \leqslant R
+\implies c-R+a+b-R \leqslant R
+$$
+
+the red person also eats no more than the upper bound $R$. Therefore, the maximum is $R$.
 
 ![eat_grapes_case2](../images/eat_grapes_solution2.png)
 
