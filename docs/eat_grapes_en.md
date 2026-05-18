@@ -45,7 +45,7 @@ We can view the three people as sitting at vertices $A$, $B$, and $C$ of a trian
 
 The red, yellow, and blue segments in the figure represent the numbers of grapes eaten by the three people. These segments are only used to illustrate the allocation relationship; they do not need to form a real triangle.
 
-![eat_grapes_visualization](../images/eat_grapes_visualization.png)
+![eat_grapes_visualization](../images/eat_grapes_overview.png)
 
 ## 4. Lower Bound Derivation
 
@@ -176,7 +176,7 @@ $$
 
 the remaining $a + b$ grapes do not exceed the upper bound $R$ and can be eaten by the blue person. Therefore, the maximum is $R$.
 
-![eat_grapes_case1](../images/eat_grapes_solution1.png)
+![eat_grapes_case1](../images/eat_grapes_1.png)
 
 The second figure corresponds to the case where the total average dominates:
 
@@ -236,7 +236,7 @@ $$
 
 the red person also eats no more than the upper bound $R$. Therefore, the maximum is $R$.
 
-![eat_grapes_case2](../images/eat_grapes_solution2.png)
+![eat_grapes_case2](../images/eat_grapes_2.png)
 
 ## 6. Complexity
 
