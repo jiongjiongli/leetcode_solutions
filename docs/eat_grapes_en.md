@@ -41,7 +41,7 @@ The rest of this document proves the conclusion.
 
 ## 3. Visualization
 
-We can view the three people as the three vertices $A$, $B$, and $C$ of a triangle. The three grape types are placed between the pairs of people who can eat them. Each grape type can only be eaten by its two adjacent people.
+We can view the three people as sitting at vertices $A$, $B$, and $C$ of a triangular table, with the three grape types placed at the three vertices. Each grape type can only be eaten by the two adjacent people.
 
 The red, yellow, and blue segments in the figure represent the numbers of grapes eaten by the three people. These segments are only used to illustrate the allocation relationship; they do not need to form a real triangle.
 
