@@ -1,8 +1,4 @@
-# leetcode_solutions
-
-## Leetcode hard problems and resolutions
-
-## Solutions
+# LeetCode Solutions
 
 | # | Problem | Difficulty | Topics | Solution |
 | --- | --- | --- | --- | --- |
@@ -41,8 +37,8 @@
 | 2750 | Ways to Split Array Into Good Subarrays | Medium | Array, Math, Dynamic Programming | [numberOfGoodSubarraySplits.py](python/numberOfGoodSubarraySplits.py) |
 
 
-## Some interesting algorithms
+# Other Interesting Problems
 
-| Problem | Documents |
+| Problem | Solutions |
 | --- | --- |
 | Eat Grapes | [Chinese](docs/eat_grapes.md), [English](docs/eat_grapes_en.md) |
