@@ -25,12 +25,12 @@ class Solution:
 
         num_swap = -1
 
+        # Swap '0' at even_pos with '1' at odd_pos
         if even_pos_num_0 == odd_pos_num_1:
-            # Swap 0 at even_pos with 1 at odd_pos
             num_swap = even_pos_num_0
 
+        # Swap '1' at even_pos with '0' at odd_pos
         if even_pos_num_1 == odd_pos_num_0:
-            # Swap 1 at even_pos with 10 at odd_pos
             if num_swap == -1:
                 num_swap = even_pos_num_1
             else:    
