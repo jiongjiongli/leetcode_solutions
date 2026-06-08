@@ -1,4 +1,4 @@
-2222NumberofWaystoSelectBuildings.py
+
 class Solution:
     def numberOfWays(self, s: str) -> int:
         # 0, 1, 01, 10
