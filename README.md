@@ -8,6 +8,7 @@
 | 42 | Trapping Rain Water | Hard | Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack | [42TrappingRainWater.py](python/42TrappingRainWater.py) |
 | 49 | Group Anagrams | Medium | Array, Hash Table, String, Sorting | [49GroupAnagrams.py](python/49GroupAnagrams.py) |
 | 76 | Minimum Window Substring | Hard | Hash Table, String, Sliding Window | [minWindow.py](python/minWindow.py) |
+| 84 | Largest Rectangle in Histogram | Hard | Array, Stack, Monotonic Stack | [84LargestRectangleinHistogram.py](python/84LargestRectangleinHistogram.py) |
 | 135 | Candy | Hard | Array, Greedy | [candy.py](python/candy.py) |
 | 136 | Single Number | Easy | Array, Bit Manipulation | [singleNumber.py](python/singleNumber.py) |
 | 138 | Copy List with Random Pointer | Medium | Hash Table, Linked List | [138CopyListwithRandomPointer.py](python/138CopyListwithRandomPointer.py) |
@@ -34,6 +35,7 @@
 | 2100 | Find Good Days to Rob the Bank | Medium | Array, Dynamic Programming, Prefix Sum | [2100FindGoodDaystoRobtheBank.py](python/2100FindGoodDaystoRobtheBank.py) |
 | 2221 | Find Triangular Sum of an Array | Medium | Array, Math, Simulation, Combinatorics | [2221FindTriangularSumofanArray.py](python/2221FindTriangularSumofanArray.py) |
 | 2222 | Number of Ways to Select Buildings | Medium | String, Dynamic Programming, Prefix Sum | [2222NumberofWaystoSelectBuildings.py](python/2222NumberofWaystoSelectBuildings.py) |
+| 2355 | Maximum Number of Books You Can Take | Hard | Array, Dynamic Programming, Stack, Monotonic Stack | [2355MaximumNumberofBooksYouCanTake.py](python/2355MaximumNumberofBooksYouCanTake.py) |
 | 2748 | Number of Beautiful Pairs | Easy | Array, Math, Number Theory | [countBeautifulPairs.py](python/countBeautifulPairs.py) |
 | 2749 | Minimum Operations to Make the Integer Zero | Medium | Bit Manipulation, Brainteaser, Enumeration | [makeTheIntegerZero.py](python/makeTheIntegerZero.py) |
 | 2750 | Ways to Split Array Into Good Subarrays | Medium | Array, Math, Dynamic Programming | [numberOfGoodSubarraySplits.py](python/numberOfGoodSubarraySplits.py) |

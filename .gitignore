@@ -217,3 +217,10 @@ Backups.backupdb
 .MobileBackups.trash
 MobileBackups.trash
 tmbootpicker.efi
+
+# VisualStudioCode.gitignore
+# Visual Studio Code
+.vscode/*
+
+# Built Visual Studio Code Extensions
+*.vsix
