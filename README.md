@@ -12,6 +12,7 @@
 | 135 | Candy | Hard | Array, Greedy | [candy.py](python/candy.py) |
 | 136 | Single Number | Easy | Array, Bit Manipulation | [singleNumber.py](python/singleNumber.py) |
 | 138 | Copy List with Random Pointer | Medium | Hash Table, Linked List | [138CopyListwithRandomPointer.py](python/138CopyListwithRandomPointer.py) |
+| 146 | LRU Cache | Medium | Hash Table, Linked List, Design, Doubly-Linked List | [146LRUCache.py](python/146LRUCache.py) |
 | 149 | Max Points on a Line | Hard | Array, Hash Table, Math, Geometry | [maxPoints.py](python/maxPoints.py) |
 | 155 | Min Stack | Medium | Stack, Design | [MinStack.py](python/MinStack.py) |
 | 200 | Number of Islands | Medium | Array, Depth-First Search, Breadth-First Search, Union Find, Matrix | [numIslands.py](python/numIslands.py) |
