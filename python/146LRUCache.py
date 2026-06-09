@@ -37,7 +37,6 @@ class LinkedList:
         self.add_to_tail(node)
 
 class LRUCache:
-
     def __init__(self, capacity: int):
         self.capacity = capacity
 
@@ -68,7 +67,6 @@ class LRUCache:
                 del_node =  self.linked_list.remove_head()
 
                 del self.item_dict[del_node.key]
-
 
 
 # Your LRUCache object will be instantiated and called as such:
